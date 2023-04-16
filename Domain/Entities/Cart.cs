@@ -10,7 +10,7 @@ namespace Domain.Entities
         }
         public decimal GetTotalPrice()
         {
-            return 0;
+            return OrderLines.Sum(x => x.GetPrice());
         }
     }
 }

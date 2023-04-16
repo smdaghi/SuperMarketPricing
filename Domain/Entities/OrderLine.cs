@@ -19,7 +19,7 @@ namespace Domain.Entities
 
         public decimal GetPrice()
         {
-            return 0;
+            return _productPricing.GetPrice(this);
         }
     }
 }
