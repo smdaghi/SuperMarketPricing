@@ -8,7 +8,7 @@ namespace Domain.Services
     {
         public decimal GetPrice(OrderLine order)
         {
-            return 0;
+            return order.Quantity * (order.Product.Price * (1 - order.Product.Discount));
         }
     }
 }
