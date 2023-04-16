@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Services;
@@ -8,6 +9,28 @@ namespace SuperMarketPricingTest
     [TestClass]
     public class BuyTwoGetOneFreeProductTest
 	{
+        [TestMethod]
+        public void BuyTwoGetOneFreeSimpleProductUnitTest()
+        {
+            IProductPricing productPricing = new BuyTwoGetOneFreeProductPricing();
+            Product product = new Product
+            {
+                Id = 1,
+                Name = "water bottle",
+                Price = 6
+            };
+            OrderLine buyTwoGetOneFreeOrder = new OrderLine(productPricing)
+            {
+                Id = 1,
+                Product = product,
+                Quantity = 3
+            };
+            //Act
+            decimal price = buyTwoGetOneFreeOrder.GetPrice();
+            //Assert
+            Assert.AreEqual(12, price);
+        }
+
         [TestMethod]
         public void BuyTwoGetOneFreeSimpleProduct()
 		{

@@ -9,6 +9,27 @@ namespace SuperMarketPricingTest
     public class ProductPricingTest
 	{
         [TestMethod]
+        public void SimpleProductPricingUnitTest()
+        {
+            IProductPricing productPricing = new ProductPricing();
+            Product product = new Product
+            {
+                Id = 1,
+                Name = "water bottle",
+                Price = 6
+            };
+            OrderLine orderLine = new OrderLine(productPricing)
+            {
+                Id = 1,
+                Product = product,
+                Quantity = 5
+            };
+            //Act
+            decimal price = orderLine.GetPrice();
+            //Assert
+            Assert.AreEqual(30, price);
+        }
+        [TestMethod]
         public void SimpleProductPricing()
 		{
             IProductPricing productPricing = new ProductPricing();
