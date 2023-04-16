@@ -1,4 +1,6 @@
 ﻿using System;
+using Domain.Interfaces;
+
 namespace Domain.Entities
 {
 	public class OrderLine
@@ -6,10 +8,15 @@ namespace Domain.Entities
         public int Id { get; set; }
         public int Quantity { get; set; }
         public Product Product { get; set; }
-        public OrderLine()
-		{
+
+        private readonly IProductPricing _productPricing;
+
+        public OrderLine(IProductPricing productPricing)
+        {
+            _productPricing = productPricing;
             Product = new Product();
         }
+
         public decimal GetPrice()
         {
             return 0;
