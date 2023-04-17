@@ -8,7 +8,7 @@ namespace Domain.Services
     {
         public decimal GetPrice(OrderLine order)
         {
-            return 0;
+            return (UnitConversion.WeightInPound(order.Product.Weight, order.Product.Unit) / 2M) * 1.0M;
         }
     }
 }
