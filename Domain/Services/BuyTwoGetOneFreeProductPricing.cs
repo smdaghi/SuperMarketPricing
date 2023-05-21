@@ -9,8 +9,11 @@ namespace Domain.Services
     {
         public decimal GetPrice(OrderLine order)
         {
-            return (order.Quantity / 3) * (2 * order.Product.Price)
-                + (order.Quantity % 3) * order.Product.Price;
+            // Calculer le nombre de paires de produits
+            int nombrePaires = order.Quantity / 2;
+
+            // Calculer le prix total en prenant en compte la promotion
+            return nombrePaires * order.Product.Price;
         }
     }
 }
