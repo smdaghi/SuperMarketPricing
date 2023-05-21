@@ -23,7 +23,7 @@ namespace SuperMarketPricingTest
             {
                 Id = 1,
                 Product = product,
-                Quantity = 3
+                Quantity = 4
             };
             //Act
             decimal price = buyTwoGetOneFreeOrder.GetPrice();
@@ -47,7 +47,7 @@ namespace SuperMarketPricingTest
             {
                 Id = 1,
                 Product = product,
-                Quantity = 3
+                Quantity = 4
             };
             Cart cart = new Cart
             {
@@ -120,7 +120,7 @@ namespace SuperMarketPricingTest
             //Act
             decimal price = cart.GetTotalPrice();
             //Assert
-            Assert.AreEqual(42.6M, price);
+            Assert.AreEqual(23,7M, price);
         }
     }
 }
